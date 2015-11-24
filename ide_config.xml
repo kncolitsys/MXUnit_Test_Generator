@@ -1,0 +1,52 @@
+<application>
+	<name>MXUnit_Test_Generator</name>
+	<version>2.0</version>
+	<description>MXUnit test outline generator.</description>   
+	<license>
+		<![CDATA[
+			MXUnit Test Outline Generator<br>
+		    Copyright (C) 2011  Joshua Caito<br><br>
+		
+		    This program is free software: you can redistribute it and/or modify<br>
+		    it under the terms of the GNU General Public License as published by<br>
+		    the Free Software Foundation, either version 3 of the License, or<br>
+		    (at your option) any later version.<br><br>
+		
+		    This program is distributed in the hope that it will be useful,<br>
+		    but WITHOUT ANY WARRANTY; without even the implied warranty of<br>
+		    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br>
+		    GNU General Public License for more details.<br><br>
+		
+		    You should have received a copy of the GNU General Public License<br>
+		    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+		]]>
+	</license>
+	
+	<!-- Leaving this in for feedback reasons in case people determine they liked the old way better
+	<install>
+		<wizard height="600" width="800" handlerid="postInstall">
+			<page title="Installation Settings">
+				<input name="testDirectory" label="Default directory for unit tests" required="true" type="dir" />
+			</page>
+		</wizard>	
+	</install>
+	-->
+	
+	<menucontributions>
+		<contribution target="projectview">
+			<menu name="Generate MXUnit Tests">
+				<filters> 
+					<filter type="file" pattern=".*\.cfc" /> 
+				</filters> 
+				<action name="Generate Tests" handlerid="testInterface" showResponse="true" />
+			</menu>
+		</contribution>
+	</menucontributions>        
+
+	<handlers>              
+		<handler id="testInterface" type="CFM" filename="testInterface.cfm" />
+		<handler id="generateTests" type="CFM" filename="createTests.cfm" />
+		<!--<handler id="postInstall" type="CFM" filename="postInstall.cfm" />-->
+	</handlers>
+
+</application>
